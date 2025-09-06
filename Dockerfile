@@ -4,15 +4,15 @@ RUN apk add --no-cache zip curl linux-headers clang20 make
 
 ENV CXX=clang++
 
-RUN curl -O https://capnproto.org/capnproto-c++-0.10.4.tar.gz && \
-    echo "981e7ef6dbe3ac745907e55a78870fbb491c5d23abd4ebc04e20ec235af4458c  capnproto-c++-0.10.4.tar.gz" | sha256sum -c && \
-    tar zxvf capnproto-c++-0.10.4.tar.gz && \
-    cd capnproto-c++-0.10.4 && \
+RUN curl -O https://capnproto.org/capnproto-c++-1.2.0.tar.gz && \
+    echo "ed00e44ecbbda5186bc78a41ba64a8dc4a861b5f8d4e822959b0144ae6fd42ef  capnproto-c++-1.2.0.tar.gz" | sha256sum -c && \
+    tar zxvf capnproto-c++-1.2.0.tar.gz && \
+    cd capnproto-c++-1.2.0 && \
     ./configure && \
     make -j8 check && \
     make install && \
     cd .. && \
-    rm -rf capnproto-c++-0.10.4
+    rm -rf capnproto-c++-1.2.0
 
 RUN apk add --no-cache git
 
